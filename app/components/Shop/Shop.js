@@ -1,6 +1,7 @@
 import React from 'react'
-import { Text, View } from 'react-native'
-import API from '../../utils/api';
+import { Text, ScrollView } from 'react-native'
+import DiscountType from '../DiscountType/DiscountType'
+import API from '../../utils/api'
 
 export default class Shop extends React.Component {
   constructor(props) {
@@ -28,14 +29,14 @@ export default class Shop extends React.Component {
 
   renderDiscountType(discountType) {
     return (
-      <Text>{discountType.name}</Text>
-      // <DiscountType name={discountType.name}
-      //               startDate={discountType.start_date}
-      //               endDate={discountType.end_date}
-      //               periodic={discountType.periodic}
-      //               lastUpdatedAt={discountType.last_updated_at}
-      //               discounts={discountType.discounts}
-      //               key={discountType.id} />
+      // <Text>{discountType.name}</Text>
+      <DiscountType name={discountType.name}
+                    startDate={discountType.start_date}
+                    endDate={discountType.end_date}
+                    periodic={discountType.periodic}
+                    lastUpdatedAt={discountType.last_updated_at}
+                    discounts={discountType.discounts}
+                    key={discountType.id} />
     )
   }
 
@@ -44,9 +45,9 @@ export default class Shop extends React.Component {
     if (!this.state.discount_types) return <Text>Loading...</Text>
 
     return (
-      <View>
+      <ScrollView>
         {this.state.discount_types.map(this.renderDiscountType)}
-      </View>
+      </ScrollView>
     )
   }
 }
