@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text, View } from 'react-native'
-// import Discount from '../Discount/Discount'
+import Discount from '../Discount/Discount'
 
 export default class DiscountType extends React.Component {
   formatDate(date) {
@@ -9,14 +9,12 @@ export default class DiscountType extends React.Component {
 
   renderDiscount(discount) {
     return (
-      <Text>{discount.name}</Text>
-      // <Discount name={discount.name}
-      //           oldPrice={discount.price_old}
-      //           newPrice={discount.price_new}
-      //           imageUrl={discount.img_url}
-      //           imageUrlSmall={discount.small_img_url}
-      //           width={discount.width_on_mobile}
-      //           key={discount.id} />
+      <Discount name={discount.name}
+                oldPrice={discount.price_old}
+                newPrice={discount.price_new}
+                imageUrl={discount.img_url}
+                width={discount.width_on_mobile}
+                key={discount.id} />
     )
   }
 
@@ -38,5 +36,3 @@ export default class DiscountType extends React.Component {
     )
   }
 }
-
- DiscountType;
